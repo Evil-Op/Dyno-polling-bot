@@ -1,6 +1,5 @@
 // Load up the discord.js library
 const Discord = require("discord.js");
-const settings = require("./your_settings.json")
 
 // This is your client. Some people call it `bot`, some people call it `self`, 
 // some might call it `cootchie`. Either way, when you see `client.something`, or `bot.something`,
@@ -74,7 +73,7 @@ client.on("message", async message => {
     // This command must be limited to mods and admins. In this example we just hardcode the role names.
     // Please read on Array.some() to understand this bit: 
     // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
-    if(!message.member.roles.some(r=>["HOUND", "Moderator"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["Administrator", "Moderator"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!");
     
     // Let's first check if we have a member and if we can kick them!
@@ -94,15 +93,15 @@ client.on("message", async message => {
     // Now, time for a swift kick in the nuts!
     await member.kick(reason)
       .catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
-    message.reply(`${member.user.tag} has been kicked`);
+    message.reply(`${member.user.tag} has been kicked by ${message.author.tag} because: ${reason}`);
 
   }
   
   if(command === "ban") {
     // Most of this command is identical to kick, except that here we'll only let admins do it.
     // In the real world mods could ban too, but this is just an example, right? ;)
-    if(!message.member.roles.some(r=>["HOUND"].includes(r.name)) )
-      return message.reply("Sorry My friend, U cant do that!!");
+    if(!message.member.roles.some(r=>["Administrator"].includes(r.name)) )
+      return message.reply("Sorry Broda, U cant do that!!");
     
     let member = message.mentions.members.first();
     if(!member)
@@ -115,16 +114,13 @@ client.on("message", async message => {
     
     await member.ban(reason)
       .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`));
-    message.reply(`${member.user.tag} was banned `);
+    message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
   }
   
   if(command === "purge") {
     // This command removes all messages from all users in the channel, up to 100.
     
     // get the delete count, as an actual number.
-    if(!message.member.roles.some(r=>["HOUND"].includes(r.name)) )
-      return message.reply("Sorry My friend, U cant do that!!");
-    
     const deleteCount = parseInt(args[0], 10);
     
     // Ooooh nice, combined conditions. <3
@@ -136,7 +132,6 @@ client.on("message", async message => {
     message.channel.bulkDelete(fetched)
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
-
 });
 
 client.login(config.token);
