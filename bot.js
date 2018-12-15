@@ -73,7 +73,7 @@ client.on("message", async message => {
     // This command must be limited to mods and admins. In this example we just hardcode the role names.
     // Please read on Array.some() to understand this bit: 
     // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
-    if(!message.member.roles.some(r=>["Administrator", "Moderator"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["Administrator", "Moderator","Staff","HOUND"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!");
     
     // Let's first check if we have a member and if we can kick them!
@@ -93,15 +93,15 @@ client.on("message", async message => {
     // Now, time for a swift kick in the nuts!
     await member.kick(reason)
       .catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
-    message.reply(`${member.user.tag} has been kicked by ${message.author.tag} because: ${reason}`);
+    message.reply(`${member.user.tag} was kicked....`);
 
   }
   
   if(command === "ban") {
     // Most of this command is identical to kick, except that here we'll only let admins do it.
     // In the real world mods could ban too, but this is just an example, right? ;)
-    if(!message.member.roles.some(r=>["Administrator"].includes(r.name)) )
-      return message.reply("Sorry Broda, U cant do that!!");
+    if(!message.member.roles.some(r=>["Administrator","Staff","HOUND"].includes(r.name)) )
+      return message.reply("Hey IMMORTAL, Sorry U cant do that!!");
     
     let member = message.mentions.members.first();
     if(!member)
@@ -119,6 +119,8 @@ client.on("message", async message => {
   
   if(command === "purge") {
     // This command removes all messages from all users in the channel, up to 100.
+    if(!message.member.roles.some(r=>["Administrator", "Moderator","Staff","HOUND"].includes(r.name)) )
+      return message.reply("Sorry, you don't have permissions to use this!");
     
     // get the delete count, as an actual number.
     const deleteCount = parseInt(args[0], 10);
