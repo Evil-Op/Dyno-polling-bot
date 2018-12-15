@@ -93,7 +93,7 @@ client.on("message", async message => {
     // Now, time for a swift kick in the nuts!
     await member.kick(reason)
       .catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
-    message.reply(`${member.tag} was kicked `);
+    message.reply(`${member.user.tag} was kicked `);
 
   }
   
