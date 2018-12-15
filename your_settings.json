@@ -14,7 +14,7 @@
     ],
     "messageresponse": {
         "missingperm": "I need permission 'MANAGE_ROLES' to execute this action.",
-        "success": "WOOHOO LETS RAINBOW!!!",
+        "success": "Rainbow role is now active...Have a Colourful time!!!",
         "rainbowstop": "Ok rainbow is over",
         "rolenotfound": "The requested role you typed was not found"
     }
