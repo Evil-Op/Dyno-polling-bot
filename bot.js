@@ -60,6 +60,8 @@ client.on("message", async message => {
   }
   
   if(command === "say") {
+     if(!message.member.roles.some(r=>["Administrator", "Moderator", "Staff", "HOUND", "MOD"].includes(r.name)) )
+      return message.reply("Sorry, you don't have permissions to use this!")
     // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
     // To get the "message" itself we join the `args` back into a string with spaces: 
     const sayMessage = args.join(" ");
