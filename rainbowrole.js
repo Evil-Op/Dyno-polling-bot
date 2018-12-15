@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const config = require('./config2.json');
+const config = require('config2.json');
 
 const size    = config.colors;
 const rainbow = new Array(size);
