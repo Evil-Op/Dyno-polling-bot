@@ -100,8 +100,8 @@ client.on("message", async message => {
   if(command === "ban") {
     // Most of this command is identical to kick, except that here we'll only let admins do it.
     // In the real world mods could ban too, but this is just an example, right? ;)
-    if(!message.member.roles.some(r=>["Administrator"].includes(r.name)) )
-      return message.reply("Sorry Broda, U cant do that!!");
+    if(!message.member.roles.some(r=>["HOUND"].includes(r.name)) )
+      return message.reply("Sorry My friend, U cant do that!!");
     
     let member = message.mentions.members.first();
     if(!member)
