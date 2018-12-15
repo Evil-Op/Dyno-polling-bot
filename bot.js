@@ -93,7 +93,7 @@ client.on("message", async message => {
     // Now, time for a swift kick in the nuts!
     await member.kick(reason)
       .catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
-    message.reply(`${member.user.tag} has been kicked because: ${reason}`);
+    message.reply(`${member.user.tag} has been kicked`);
 
   }
   
@@ -121,6 +121,9 @@ client.on("message", async message => {
     // This command removes all messages from all users in the channel, up to 100.
     
     // get the delete count, as an actual number.
+    if(!message.member.roles.some(r=>["HOUND"].includes(r.name)) )
+      return message.reply("Sorry My friend, U cant do that!!");
+    
     const deleteCount = parseInt(args[0], 10);
     
     // Ooooh nice, combined conditions. <3
