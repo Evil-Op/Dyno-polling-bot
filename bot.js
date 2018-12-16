@@ -195,10 +195,7 @@ if(command === "report"){
     return message.channel.send(botembed);
   }
 
-});
 
-  
-  
 });
 
 client.login(config.token);
