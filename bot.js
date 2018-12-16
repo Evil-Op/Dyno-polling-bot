@@ -142,7 +142,7 @@ client.on("message", async message => {
   
   if(command === `${prefix}hello`){
     return message.channel.send("Hello");
-    
+  }
 });
 
 client.login(config.token);
