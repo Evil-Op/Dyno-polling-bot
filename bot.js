@@ -140,9 +140,6 @@ client.on("message", async message => {
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
   
-  if(command === `${prefix}hello`){
-    return message.channel.send("Hello");
-  }
 });
 
 client.login(config.token);
