@@ -7,7 +7,7 @@ bot.on('ready', () => {
 });
 
 bot.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', 'welcome-leave');
+    let channel = member.guild.channels.find('name', 'u-do-play-clash-royale');
     let memberavatar = member.user.avatarURL
         if (!channel) return;
         let embed = new Discord.RichEmbed()
