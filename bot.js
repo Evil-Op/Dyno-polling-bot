@@ -155,7 +155,7 @@ client.on("message", async message => {
     return message.channel.send(serverembed);
   }
 
-if(cmd === `${prefix}report`){
+if(command === "report"){
 
     //!report @ned this is the reason
 
