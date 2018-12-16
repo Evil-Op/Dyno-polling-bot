@@ -140,7 +140,7 @@ client.on("message", async message => {
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
   
-   if(cmd === `${prefix}serverinfo`){
+   if(cmd === "serverinfo"){
 
     let sicon = message.guild.iconURL;
     let serverembed = new Discord.RichEmbed()
@@ -157,7 +157,7 @@ client.on("message", async message => {
 
 
 
-  if(cmd === `${prefix}botinfo`){
+  if(cmd === "botinfo"){
 
     let bicon = bot.user.displayAvatarURL;
     let botembed = new Discord.RichEmbed()
