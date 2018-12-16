@@ -3,6 +3,8 @@ const config = require("./config.json");
 const ms = require("ms");
 
 nodule.exports.run = async (bot, message, args) => {
+    if(command === config.prefix + tempmute)
+    
 
     let tomute = message.mentions.members.first() || message.guild.members.get(args[0]);
     if(!tomute) return message.reply("Couldnt Find the user");
