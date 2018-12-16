@@ -171,6 +171,7 @@ if(command === "report"){
     .addField("Channel", message.channel)
     .addField("Time", message.createdAt)
     .addField("Reason", rreason);
+  return message.reply("${member.user.tag} is reported};
 
     let reportschannel = message.guild.channels.find(`name`, "reports");
     if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
