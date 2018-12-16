@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
-const config = require("./config.json");
-const client = new Discord.Client();
+
 const ms = require("ms");
 
 nodule.exports.run = async (bot, message, args) => {
@@ -41,4 +40,3 @@ nodule.exports.run = async (bot, message, args) => {
 nodule.exports.help = {
     name: "tempmute"
 }
-client.login(config.token);
