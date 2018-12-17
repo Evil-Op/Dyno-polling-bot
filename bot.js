@@ -170,6 +170,7 @@ client.on("message", async message => {
   }
   
   if(command === "mute"){
+    const ms = require("ms");
 
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!tomute) return message.reply("Couldn't find user.");
