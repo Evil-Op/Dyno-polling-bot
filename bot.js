@@ -157,14 +157,14 @@ client.on("message", async message => {
 
   if(command === "botinfo"){
 
-    let boticon = bot.user.displayAvatarURL;
+    let boticon = client.user.displayAvatarURL;
     let botembed = new Discord.RichEmbed()
     .setDescription("Bot Information")
     .setColor("#15f153")
     .setThumbnail(boticon)
-    .addField("Bot Name", bot.user.username)
-    .addField("Bot Create Date", bot.user.createdAt)
-    .addField("Servers", bot.guilds.size);
+    .addField("Bot Name", client.user.username)
+    .addField("Bot Create Date", client.user.createdAt)
+    .addField("Servers", client.guilds.size);
 
    return message.channel.send(botembed);
   }
