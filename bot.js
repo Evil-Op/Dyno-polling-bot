@@ -1,6 +1,5 @@
 // Load up the discord.js library
 const Discord = require("discord.js");
-const ms = require("ms");
 
 // This is your client. Some people call it `bot`, some people call it `self`, 
 // some might call it `cootchie`. Either way, when you see `client.something`, or `bot.something`,
@@ -174,7 +173,6 @@ client.on("message", async message => {
 
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!tomute) return message.reply("Couldn't find user.");
-    if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("Can't mute them!");
     let muterole = message.guild.roles.find(`name`, "muted");
     //start of create role
     if(!muterole){
