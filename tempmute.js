@@ -42,4 +42,4 @@ if(command === "+mute"){
 
 //end of module
 }
-client.login(config.token)
+client.login(config.token);
