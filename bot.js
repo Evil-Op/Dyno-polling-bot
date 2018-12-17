@@ -160,7 +160,7 @@ client.on("message", async message => {
     let boticon = bot.user.displayAvatarURL;
     let botembed = new Discord.RichEmbed()
     .setDescription("Bot Information")
-    .setColor("0ED4DA")
+    .setColor("#15f153")
     .setThumbnail(boticon)
     .addField("Bot Name", bot.user.username)
     .addField("Bot Create Date", bot.user.createdAt)
