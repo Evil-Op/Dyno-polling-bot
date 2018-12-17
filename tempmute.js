@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
-const config = require("./config.json")
+const config = require("./config.json");
+const client = new Discord.Client();
 const ms = require("ms");
 
 if(command === "+mute"){
@@ -41,4 +42,4 @@ if(command === "+mute"){
 
 //end of module
 }
-bot.login(config.token)
+client.login(config.token)
