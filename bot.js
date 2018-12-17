@@ -167,7 +167,7 @@ client.on("message", async message => {
     .addField("Servers", bot.guilds.size);
 
    return message.channel.send(botembed);
-}
+  }
 
   
   
