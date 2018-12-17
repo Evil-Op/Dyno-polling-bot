@@ -164,7 +164,7 @@ client.on("message", async message => {
     .setThumbnail(boticon)
     .addField("Bot Name", bot.user.username)
     .addField("Bot Create Date", bot.user.createdAt)
-    .addField("Servers", bot.guilds.size)
+    .addField("Servers", bot.guilds.size);
 
    return message.channel.send(botembed);
 }
