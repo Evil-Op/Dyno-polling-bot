@@ -169,16 +169,7 @@ client.on("message", async message => {
    return message.channel.send(botembed);
   }
   
-  bot.on("message", async message => {
-    if(message.author.bot) return;
-    if(message.channel.type === "dm") return;
-
-    let prefix = config.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0];
-    let args = messageArray.slice(1);
-
-    if (cmd === `${prefix}report`){
+    if (command === "report"){
 
         let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if(!rUser) return message.channel.send("Couldnt find the user");
