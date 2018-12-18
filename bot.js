@@ -244,6 +244,15 @@ client.on("message", async message => {
   message.channel.send(embed);
 }
   
+  if(command === "mukhda"){
+    let user = message.mentions.users.first() || message.author;
+    let embed = new Discord.RichEmbed()
+    .setAuthor(`${user.username}'s Avatar`)
+    .setImage(user.displayAvatarURL)
+    .setColor('RANDOM')
+    message.channel.send(embed);
+}
+  
 });
   
 
