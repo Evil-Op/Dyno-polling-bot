@@ -264,7 +264,6 @@ function checkMembers(guild) {
   .addField('ID:', user.id, true)
   .addField('Discrim', user.discriminator, true)
   .addField('Status', user.presence.status, true)
-      .addField("Roles", `${user.roles.filter(r => r.id !== message.guild.id).map(roles => `\`${roles.name}\``).join(" **|** ") || "No Roles"}`, true)
   .addField('Bot?', user.bot, true)
   .setThumbnail(user.displayAvatarURL)
   message.channel.send(embed);
