@@ -179,7 +179,7 @@ client.on("message", async message => {
     
         let reportEmbed = new Discord.RichEmbed()
         .setDescription("Reports")
-        .setColor("#15f153")
+        .setColor("#660066")
         .addField("Reported User", `${rUser} with ID: ${rUser.id}`);
     
         message.channel.send(reportEmbed);
