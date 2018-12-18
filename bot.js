@@ -237,6 +237,7 @@ client.on("message", async message => {
   .setThumbnail(user.displayAvatarURL)
   .setColor('RANDOM')
   .addField('Username', user.username, true)
+  .addField('ID:', user.id, true)
   .addField('Discrim', user.discriminator, true)
   .addField('Status', user.presence.status, true)
   .addField('Bot?', user.bot, true)
