@@ -149,7 +149,6 @@ client.on("message", async message => {
   });
   return botCount; // Return amount of bots
 }
-Okay, so now we will do same method, but to check how many humans are in guild
 
 function checkMembers(guild) {
     let memberCount = 0;
@@ -160,9 +159,11 @@ function checkMembers(guild) {
   }
   
    if(command === "serverinfo"){
-
-    .setAuthor(`${message.guild.name} - Informations`, message.guild.iconURL) // Will set text on top of embed to <guild name> - Informations, and will place guild icon next to it
-    .setColor('#f4df42') // Will set color of embed
+      let sicon = message.guild.iconURL;
+      let embed = new Discord.RichEmbed()
+    .setDescription("Hamare server ki katha")
+    .setThumbnail(sicon)
+    .setColor('#f4df42')
     .addField('Server owner', message.guild.owner, true) // Will add in-line field with server owner
     .addField('Server region', message.guild.region, true) // Will add in-line field with server region
     .addField('Channel count', message.guild.channels.size, true) // Will add in-line field with total channel count
@@ -174,7 +175,7 @@ function checkMembers(guild) {
     .addField('Verification level', message.guild.verificationLevel, true)
     // And now, we can finally add footer and timestamp
     .setFooter('Guild created at:')
-    .setTimestamp(message.guild.createdAt); // Will set timestamp to date when guild was created
+    .setTimestamp(message.guild.createdAt);
 
     // And now we can send our embed
     return message.channel.send(embed);
