@@ -190,6 +190,8 @@ client.on("message", async message => {
   
   if(command === "mute") 
   {
+    if(!message.member.roles.some(r=>["Administrator", "Moderator", "Staff", "HOUND", "MOD"].includes(r.name)) )
+      return message.reply("Sorry, you don't have permissions to use this!");
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!tomute) return message.reply("Couldn't find user.");
   let muterole = message.guild.roles.find(`name`, "muted");
