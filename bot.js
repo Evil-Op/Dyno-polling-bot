@@ -247,6 +247,7 @@ client.on("message", async message => {
   if(command === "mukhda"){
     let user = message.mentions.users.first() || message.author;
     let embed = new Discord.RichEmbed()
+    .addField('Ye raha aapka sundar chehra :pray:', user.username, true)
     .setAuthor(`${user.username}'s Avatar`)
     .setImage(user.displayAvatarURL)
     .setColor('RANDOM')
