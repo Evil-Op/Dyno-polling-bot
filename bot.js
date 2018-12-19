@@ -343,9 +343,12 @@ function checkMembers(guild) {
 
 }
   
-  if (command === "changeNick") {
-    client.user.setUsername(args).then(user => message.reply(`My new nickname is ${user.username}!`)).catch(console.error);
-  }
+     if(command === "nick"){
+        let nick = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!nick) return message.reply("Couldn't find user.");
+    if(nick.hasPermission("ADMINISTRATOR")) return message.reply("Cannot change the nickname");
+    }
+ 
   
 });
   
