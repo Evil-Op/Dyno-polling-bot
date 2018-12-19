@@ -347,6 +347,7 @@ function checkMembers(guild) {
         let nick = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!nick) return message.reply("Couldn't find user.");
     if(nick.hasPermission("ADMINISTRATOR")) return message.reply("Cannot change the nickname");
+    message.member.setNickname(args[0]);
     }
  
   
