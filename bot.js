@@ -343,6 +343,13 @@ function checkMembers(guild) {
 
 }
   
+  if (command == "nickname") {
+        var userID = args[0].replace('<@', '').replace('>', '').replace('!', '');
+        message.channel.send(userID);
+        message.guild.members.get(args[0]).id.setNickname("test", "nick command executed");
+        message.channel.send(`Successfully changed ${args[0]}'s nickname to "${message.channel.server.detailsOf(args[0]).nick}"`);
+    }
+  
 });
   
 
