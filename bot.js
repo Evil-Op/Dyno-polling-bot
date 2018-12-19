@@ -344,11 +344,9 @@ function checkMembers(guild) {
 }
   
   if (command == "nickname") {
-        var userID = args[0].replace('<@', '').replace('>', '').replace('!', '');
-        message.channel.send(userID);
-        message.guild.members.get(args[0]).id.setNickname("test", "nickname command executed");
-        message.channel.send(`Successfully changed ${args[0]}'s nickname to "${message.channel.server.detailsOf(args[0]).nick}"`);
-    }
+    if (!message.guild.me.hasPermission('MANAGE_NICKNAMES')) return message.channel.send('I don\'t have permission to change your nickname!');
+    message.member.setNickname(message.content.replace('changeNick ', ''));
+}
   
 });
   
