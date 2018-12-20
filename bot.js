@@ -343,7 +343,7 @@ function checkMembers(guild) {
 
 }
   
-     if(command === "nick"){
+     if(command === "name"){
         let nick = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!nick) return message.reply("Couldn't find user.");
         let args = message.content.split(" ").slice(1);
