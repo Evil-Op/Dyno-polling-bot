@@ -343,14 +343,18 @@ function checkMembers(guild) {
 
 }
   
-     if(command === "nick"){
-        let nick = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!nick) return message.reply("Couldn't find user.");
-        let args = message.content.split(" ").slice(1);
-       if(nick.hasPermission("ADMINISTRATOR")) return message.reply("Cannot change the nickname");
-       message.member.setNickname(args).then(user => message.reply(`My new nickname is ${user.username}!`)).catch(console.error);
     
-    }
+  
+  
+  if(command=== "nick"){
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Sorry pal, you can't do that.");
+  let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+  if(!rMember) return message.reply("Couldn't find that user, yo.");
+  let nickname = args.join(" ").slice(22);
+  if(!nickname) return message.reply("Specify a nickname!");
+  let gNick = message.member.setNickname.find(`name`, nickname);
+  if(!gNick) return message.reply("Couldn't find that role.");
+  }
  
   
 });
