@@ -351,7 +351,14 @@ function checkMembers(guild) {
        message.member.setNickname(args).then(user => message.reply(`My new nickname is ${user.username}!`)).catch(console.error);
     
     }
- 
+  
+ if(command === "senddm"){
+   if(mention == null) { return; }
+   message.delete();
+   mentionMessage = message.content.slice (8);
+   mention.sendMessage (mentionMessage);
+   message.channel.send ("Kardiya");
+ }
   
 });
   
